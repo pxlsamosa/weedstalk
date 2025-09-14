@@ -13,3 +13,15 @@ config_version=5
 config/name="weedstalk"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon1.svg"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Concept_Art/": "orange",
+"res://Links_future_stuff/": "green",
+"res://Plugin/": "teal",
+"res://Reference/": "blue",
+"res://Scenes/": "purple",
+"res://Shaders/": "pink"
+}
