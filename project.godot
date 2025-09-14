@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="weedstalk"
+run/main_scene="uid://da26xbm8mt5bx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon1.svg"
 

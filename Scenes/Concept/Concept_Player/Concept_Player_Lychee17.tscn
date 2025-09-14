@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctsf2h50qnqt8"]
+
+[sub_resource type="GDScript" id="GDScript_6ncxw"]
+script/source = "extends CharacterBody2D
+
+@export var speed: float = 200.0
+@export var smoothing: float = 8.0   # Larger = snappier, smaller = smoother
+
+func _physics_process(delta: float) -> void:
+	# 1. Read input
+	var input_dir := Vector2.ZERO
+	if Input.is_action_pressed(\"ui_right\"):
+		input_dir.x += 1
+	if Input.is_action_pressed(\"ui_left\"):
+		input_dir.x -= 1
+	if Input.is_action_pressed(\"ui_down\"):
+		input_dir.y += 1
+	if Input.is_action_pressed(\"ui_up\"):
+		input_dir.y -= 1
+
+	# 2. Determine target velocity without ternary
+	var target_velocity: Vector2
+	if input_dir == Vector2.ZERO:
+		target_velocity = Vector2.ZERO
+	else:
+		target_velocity = input_dir.normalized() * speed
+
+	# 3. Smooth current velocity toward target
+	velocity = velocity.lerp(target_velocity, smoothing * delta)
+
+	# 4. Move with collisions
+	move_and_slide()
+"
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gfoql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8060v"]
+size = Vector2(24, 25)
+
+[node name="ConceptPlayer" type="CharacterBody2D"]
+script = SubResource("GDScript_6ncxw")
+
+[node name="Player_body" type="Sprite2D" parent="."]
+position = Vector2(2.98023e-08, -1)
+scale = Vector2(23.75, 25)
+texture = SubResource("PlaceholderTexture2D_gfoql")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_8060v")
