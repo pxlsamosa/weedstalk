@@ -33,10 +33,9 @@ func _physics_process(delta: float) -> void:
 		State = 1
 		charactor_sprite.play(\"Walk\")
 	
-	if velocity.length() < 1.0:
-		State = 0
-		if charactor_sprite.animation != \"Idle\":
-			charactor_sprite.play(\"Idle\")
+    if velocity.length() < 1.0:
+        if charactor_sprite.animation != \"Idle\":
+            charactor_sprite.play(\"Idle\")
 
 	# 2. Determine target velocity without ternary
 	var target_velocity: Vector2
@@ -46,11 +45,6 @@ func _physics_process(delta: float) -> void:
 		target_velocity = input_dir.normalized() * speed
 
 	
-	if velocity.x > 0.1:
-		charactor_sprite.flip_h = false
-	elif velocity.x < -0.1:
-		charactor_sprite.flip_h = true
-
 	# 3. Smooth current velocity toward target
 	velocity = velocity.lerp(target_velocity, smoothing * delta)
 
@@ -151,9 +145,10 @@ animations = [{
 
 [node name="ConceptPlayer" type="CharacterBody2D"]
 script = SubResource("GDScript_6ncxw")
+speed = null
+smoothing = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)

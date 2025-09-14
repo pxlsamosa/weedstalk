@@ -15,6 +15,11 @@ run/main_scene="uid://da26xbm8mt5bx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon1.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [file_customization]
 
 folder_colors={
