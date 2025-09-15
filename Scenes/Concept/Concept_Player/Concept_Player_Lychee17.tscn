@@ -1,12 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://ctsf2h50qnqt8"]
+[gd_scene load_steps=27 format=3 uid="uid://ctsf2h50qnqt8"]
 
 [ext_resource type="Texture2D" uid="uid://c2u4sk4os7ehx" path="res://Assets/Concept/Spirit Boxer/Idle.png" id="1_8060v"]
+[ext_resource type="Texture2D" uid="uid://bkjd7qpyvscni" path="res://Assets/Concept/Spirit Boxer/attack 3.png" id="1_n5wxs"]
 [ext_resource type="Texture2D" uid="uid://b6yy43xyo0hd7" path="res://Assets/Concept/Spirit Boxer/Run.png" id="2_n5wxs"]
 
 [sub_resource type="GDScript" id="GDScript_6ncxw"]
 script/source = "extends CharacterBody2D
 
+#normal
 var State = 0
+var Attacking_state = false
+
+#exports
 @export var speed: float = 200.0
 @export var smoothing: float = 8.0   # Larger = snappier, smaller = smoother
 
@@ -16,28 +21,34 @@ var State = 0
 func _physics_process(delta: float) -> void:
 	# 1. Read input
 	var input_dir := Vector2.ZERO
-	if Input.is_action_pressed(\"ui_right\"):
+	if Input.is_action_pressed(\"Right\"):
 		input_dir.x += 1
 		State = 1
-		charactor_sprite.play(\"Walk\")
-	if Input.is_action_pressed(\"ui_left\"):
+	if Input.is_action_pressed(\"Left\"):
 		input_dir.x -= 1
 		State = 1
-		charactor_sprite.play(\"Walk\")
-	if Input.is_action_pressed(\"ui_down\"):
+	if Input.is_action_pressed(\"Backward\"):
 		input_dir.y += 1 
 		State = 1
-		charactor_sprite.play(\"Walk\")
-	if Input.is_action_pressed(\"ui_up\"):
+	if Input.is_action_pressed(\"Forward\"):
 		input_dir.y -= 1
 		State = 1
-		charactor_sprite.play(\"Walk\")
 	
+	#WHEN CARACTOR FULLLY STOPPED
 	if velocity.length() < 1.0:
 		State = 0
-		if charactor_sprite.animation != \"Idle\":
-			charactor_sprite.play(\"Idle\")
-
+	
+	
+	#Animations of player
+	if !Attacking_state:
+		if State == 0:
+			if charactor_sprite.animation != \"Idle\":
+				charactor_sprite.play(\"Idle\")
+		elif State == 1:
+			if charactor_sprite.animation != \"Walk\":
+				charactor_sprite.play(\"Walk\")
+	
+	
 	# 2. Determine target velocity without ternary
 	var target_velocity: Vector2
 	if input_dir == Vector2.ZERO:
@@ -45,7 +56,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		target_velocity = input_dir.normalized() * speed
 
-	
 	if velocity.x > 0.1:
 		charactor_sprite.flip_h = false
 	elif velocity.x < -0.1:
@@ -60,6 +70,46 @@ func _physics_process(delta: float) -> void:
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8060v"]
 size = Vector2(24, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05ak4"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 0, 137, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5usfw"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 44, 137, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7swh"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 88, 137, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk2fr"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 132, 137, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlcvt"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 176, 137, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mny85"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 220, 137, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtolq"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 264, 137, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx3ym"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 308, 137, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8u3y"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 352, 137, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vr5l"]
+atlas = ExtResource("1_n5wxs")
+region = Rect2(0, 396, 137, 44)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vaw5h"]
 atlas = ExtResource("1_8060v")
@@ -103,6 +153,41 @@ region = Rect2(1, 220, 27, 44)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_05ak4"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05ak4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5usfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7swh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk2fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlcvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mny85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtolq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx3ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8u3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vr5l")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vaw5h")
@@ -162,6 +247,5 @@ shape = SubResource("RectangleShape2D_8060v")
 [node name="Charactor_sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_05ak4")
-animation = &"Idle"
-frame = 3
-frame_progress = 1.0
+animation = &"Attack"
+frame_progress = 0.107893

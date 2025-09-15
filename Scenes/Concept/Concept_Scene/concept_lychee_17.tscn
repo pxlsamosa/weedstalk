@@ -261,7 +261,7 @@ texture = ExtResource("2_sfv2t")
 [node name="1" type="PointLight2D" parent="Post_Processing/Eletrical_stand"]
 position = Vector2(407, 512)
 scale = Vector2(0.894531, 0.933594)
-color = Color(0.368627, 0.8, 1, 0.537255)
+color = Color(0.368627, 0.8, 1, 0.545098)
 shadow_enabled = true
 shadow_filter = 2
 texture = ExtResource("2_sfv2t")
