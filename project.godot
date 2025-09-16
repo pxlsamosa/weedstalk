@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="weedstalk"
-run/main_scene="uid://da26xbm8mt5bx"
+run/main_scene="uid://bsq1fauqdivqq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon1.svg"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=128
+window/size/viewport_height=128
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+window/canvas_textures/default_texture_filter=0
 
 [file_customization]
 
@@ -59,3 +63,7 @@ aTTACK={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(308, 20),"global_position":Vector2(317, 68),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

@@ -1,5 +1,77 @@
-[gd_scene format=3 uid="uid://bsq1fauqdivqq"]
+[gd_scene load_steps=12 format=3 uid="uid://bsq1fauqdivqq"]
+
+[ext_resource type="Texture2D" uid="uid://cxhqf8hcmv6fw" path="res://Assets/Sprites/idle.png" id="1_l26l0"]
+[ext_resource type="Script" uid="uid://woq0k08fbuw" path="res://Assets/Scripts/plant.gd" id="2_qplxx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qplxx"]
+atlas = ExtResource("1_l26l0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elf4b"]
+atlas = ExtResource("1_l26l0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guoxd"]
+atlas = ExtResource("1_l26l0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvsrt"]
+atlas = ExtResource("1_l26l0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nacht"]
+atlas = ExtResource("1_l26l0")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acsc0"]
+atlas = ExtResource("1_l26l0")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8o6k"]
+atlas = ExtResource("1_l26l0")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4357x"]
+atlas = ExtResource("1_l26l0")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1jyc"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qplxx")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_elf4b")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_guoxd")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_rvsrt")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_nacht")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_acsc0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_f8o6k")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4357x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
 
-[node name="Plant" type="Sprite2D" parent="."]
+[node name="Plant" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f1jyc")
+animation = &"idle"
+frame_progress = 0.606381
+centered = false
+script = ExtResource("2_qplxx")
