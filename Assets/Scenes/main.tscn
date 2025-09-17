@@ -72,6 +72,6 @@ animations = [{
 [node name="Plant" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f1jyc")
 animation = &"idle"
-frame_progress = 0.606381
+frame_progress = 0.903515
 centered = false
 script = ExtResource("2_qplxx")
