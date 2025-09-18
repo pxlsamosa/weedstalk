@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsq1fauqdivqq"]
+[gd_scene load_steps=13 format=3 uid="uid://bsq1fauqdivqq"]
 
 [ext_resource type="Texture2D" uid="uid://cxhqf8hcmv6fw" path="res://Assets/Sprites/idle.png" id="1_l26l0"]
 [ext_resource type="Script" uid="uid://woq0k08fbuw" path="res://Assets/Scripts/plant.gd" id="2_qplxx"]
@@ -67,11 +67,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qplxx"]
+size = Vector2(9, 14)
+
 [node name="Main" type="Node2D"]
 
-[node name="Plant" type="AnimatedSprite2D" parent="."]
+[node name="Plant" type="Node2D" parent="."]
+script = ExtResource("2_qplxx")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="Plant"]
 sprite_frames = SubResource("SpriteFrames_f1jyc")
 animation = &"idle"
-frame_progress = 0.903515
-centered = false
-script = ExtResource("2_qplxx")
+frame_progress = 0.71463
+
+[node name="Area2D" type="Area2D" parent="Plant"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant/Area2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_qplxx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0

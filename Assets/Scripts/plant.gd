@@ -1,4 +1,6 @@
-extends AnimatedSprite2D
+extends Node2D
+
+@onready var sprite = $AnimatedSprite2d
 
 func _ready():
-	play("idle")
+	sprite.play("idle")
