@@ -78,7 +78,7 @@ script = ExtResource("2_qplxx")
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="Plant"]
 sprite_frames = SubResource("SpriteFrames_f1jyc")
 animation = &"idle"
-frame_progress = 0.71463
+frame_progress = 0.940197
 
 [node name="Area2D" type="Area2D" parent="Plant"]
 
@@ -93,3 +93,4 @@ shape = SubResource("RectangleShape2D_qplxx")
 [node name="Label" type="Label" parent="UI"]
 offset_right = 40.0
 offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
