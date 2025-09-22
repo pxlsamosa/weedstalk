@@ -1,38 +1,38 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsq1fauqdivqq"]
+[gd_scene load_steps=13 format=3 uid="uid://d03qai2rinwgc"]
 
-[ext_resource type="Texture2D" uid="uid://cxhqf8hcmv6fw" path="res://Assets/Sprites/idle.png" id="1_l26l0"]
-[ext_resource type="Script" uid="uid://woq0k08fbuw" path="res://Assets/Scripts/plant.gd" id="2_qplxx"]
+[ext_resource type="Script" uid="uid://woq0k08fbuw" path="res://scenes/plants/plant.gd" id="1_lgekl"]
+[ext_resource type="Texture2D" uid="uid://cxhqf8hcmv6fw" path="res://assets/sprites/idle.png" id="2_mmu07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qplxx"]
-atlas = ExtResource("1_l26l0")
+atlas = ExtResource("2_mmu07")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_elf4b"]
-atlas = ExtResource("1_l26l0")
+atlas = ExtResource("2_mmu07")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_guoxd"]
-atlas = ExtResource("1_l26l0")
+atlas = ExtResource("2_mmu07")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvsrt"]
-atlas = ExtResource("1_l26l0")
+atlas = ExtResource("2_mmu07")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nacht"]
-atlas = ExtResource("1_l26l0")
+atlas = ExtResource("2_mmu07")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_acsc0"]
-atlas = ExtResource("1_l26l0")
+atlas = ExtResource("2_mmu07")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8o6k"]
-atlas = ExtResource("1_l26l0")
+atlas = ExtResource("2_mmu07")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4357x"]
-atlas = ExtResource("1_l26l0")
+atlas = ExtResource("2_mmu07")
 region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f1jyc"]
@@ -70,27 +70,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qplxx"]
 size = Vector2(9, 14)
 
-[node name="Main" type="Node2D"]
+[node name="Plant" type="Node2D"]
+script = ExtResource("1_lgekl")
 
-[node name="Plant" type="Node2D" parent="."]
-script = ExtResource("2_qplxx")
-
-[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="Plant"]
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f1jyc")
 animation = &"idle"
 frame_progress = 0.940197
 
-[node name="Area2D" type="Area2D" parent="Plant"]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_qplxx")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="UI"]
-offset_right = 40.0
-offset_bottom = 23.0
-metadata/_edit_use_anchors_ = true

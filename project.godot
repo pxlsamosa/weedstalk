@@ -12,7 +12,7 @@ config_version=5
 
 config/name="weedstalk"
 run/main_scene="uid://bsq1fauqdivqq"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon1.svg"
 
 [display]
@@ -27,13 +27,17 @@ window/canvas_textures/default_texture_filter=0
 [file_customization]
 
 folder_colors={
-"res://Assets/": "red",
 "res://Concept_Art/": "orange",
 "res://Links_future_stuff/": "green",
 "res://Plugin/": "teal",
 "res://Reference/": "blue",
-"res://Scenes/": "purple",
-"res://Shaders/": "pink"
+"res://Shaders/": "pink",
+"res://assets/": "red",
+"res://data/": "orange",
+"res://globals/": "green",
+"res://resources/": "yellow",
+"res://scenes/": "purple",
+"res://util/": "teal"
 }
 
 [input]
