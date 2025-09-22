@@ -76,10 +76,23 @@ script = ExtResource("1_lgekl")
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f1jyc")
 animation = &"idle"
-frame_progress = 0.940197
+frame = 5
+frame_progress = 0.3822001
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_qplxx")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -6.0
+offset_top = -20.0
+offset_right = 6.0
+offset_bottom = 3.0
+theme_override_font_sizes/font_size = 12
+text = "1"
+horizontal_alignment = 1
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

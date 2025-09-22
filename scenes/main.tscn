@@ -4,8 +4,6 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="UI"]
@@ -14,9 +12,10 @@ offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Plant" parent="." instance=ExtResource("1_l26l0")]
+position = Vector2(33, 70)
 
 [node name="Plant2" parent="." instance=ExtResource("1_l26l0")]
-position = Vector2(16, 0)
+position = Vector2(49, 70)
 
 [node name="Plant3" parent="." instance=ExtResource("1_l26l0")]
-position = Vector2(31, 0)
+position = Vector2(64, 70)
