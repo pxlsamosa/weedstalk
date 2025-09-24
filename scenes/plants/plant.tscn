@@ -138,7 +138,7 @@ script = ExtResource("1_lgekl")
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f1jyc")
 animation = &"idletd"
-frame_progress = 0.521638
+frame_progress = 0.349232
 
 [node name="Area2D" type="Area2D" parent="."]
 
