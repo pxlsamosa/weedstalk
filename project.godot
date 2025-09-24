@@ -12,8 +12,12 @@ config_version=5
 
 config/name="weedstalk"
 run/main_scene="uid://bsq1fauqdivqq"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon1.svg"
+
+[autoload]
+
+PlayerData="*res://globals/PlayerData.gd"
 
 [display]
 
@@ -39,6 +43,10 @@ folder_colors={
 "res://scenes/": "purple",
 "res://util/": "teal"
 }
+
+[global_group]
+
+plant=""
 
 [input]
 

@@ -1,11 +1,12 @@
 extends Node
 #PlayerData.gd global autoload
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var total_plant_counter : int = 0 
+
+signal counter_updated
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
+func update_click_count():
+	total_plant_counter += 1
+	emit_signal("counter_updated")

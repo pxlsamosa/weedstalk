@@ -1,8 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://d03qai2rinwgc"]
+[gd_scene load_steps=24 format=3 uid="uid://d03qai2rinwgc"]
 
 [ext_resource type="Script" uid="uid://woq0k08fbuw" path="res://scenes/plants/plant.gd" id="1_lgekl"]
-[ext_resource type="Texture2D" uid="uid://cxhqf8hcmv6fw" path="res://Assets/Sprites/idle.png" id="2_mmu07"]
-[ext_resource type="Texture2D" uid="uid://bqxgr0mcchm8x" path="res://Assets/Sprites/idletd.png" id="3_rvdin"]
+[ext_resource type="Texture2D" uid="uid://cxhqf8hcmv6fw" path="res://assets/sprites/idle.png" id="2_mmu07"]
+[ext_resource type="Texture2D" uid="uid://bqxgr0mcchm8x" path="res://assets/sprites/idletd.png" id="3_rvdin"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qplxx"]
 atlas = ExtResource("2_mmu07")
@@ -132,28 +132,69 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qplxx"]
 size = Vector2(9, 14)
 
-[node name="Plant" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jthe7"]
+bg_color = Color(0.3032328, 0.30323285, 0.30323276, 1)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvdin"]
+bg_color = Color(0.48711652, 0.67216265, 1.1551381e-06, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Plant" type="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
 script = ExtResource("1_lgekl")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_f1jyc")
 animation = &"idletd"
 frame_progress = 0.349232
 
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 23.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(8, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_qplxx")
 
-[node name="Label" type="Label" parent="."]
-texture_filter = 1
-offset_left = -6.0
-offset_top = -20.0
-offset_right = 6.0
-offset_bottom = 3.0
-theme_override_font_sizes/font_size = 12
-text = "1"
-horizontal_alignment = 1
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 3.0
+offset_right = 18.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jthe7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rvdin")
+value = 65.0
+fill_mode = 3
+show_percentage = false
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
