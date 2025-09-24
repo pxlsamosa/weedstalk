@@ -186,6 +186,7 @@ position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_qplxx")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 14.0
 offset_top = 3.0
