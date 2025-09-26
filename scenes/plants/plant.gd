@@ -8,7 +8,7 @@ var plant_amount : int = 0 #this is how you make variables
 
 func _ready(): 
 	label.text = str(plant_amount) #set the labels text to 0
-	sprite.play("idletd")
+	sprite.play("sprout")
 
 
 #this checks for a left mouse click on the area2d node
