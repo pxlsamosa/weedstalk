@@ -75,7 +75,7 @@ script = ExtResource("1_sugp2")
 [node name="TotalClickLabel" type="RichTextLabel" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-text = "3"
+text = "0"
 script = ExtResource("2_jyhfs")
 
 [node name="Floor" type="TileMapLayer" parent="."]
@@ -88,10 +88,10 @@ tile_map_data = PackedByteArray("AAAGAAEAAAAKAAUAAAAHAAEAAAALAAUAAAAIAAEAAAAMAAU
 tile_set = SubResource("TileSet_jyhfs")
 
 [node name="PlantGridContainer" type="GridContainer" parent="."]
-offset_left = 65.0
-offset_top = 32.0
-offset_right = 142.0
-offset_bottom = 126.0
+offset_left = 64.0
+offset_top = 35.0
+offset_right = 164.0
+offset_bottom = 129.0
 columns = 5
 
 [node name="Plant" parent="PlantGridContainer" groups=["plant"] instance=ExtResource("1_l26l0")]
@@ -146,4 +146,10 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Plant18" parent="PlantGridContainer" instance=ExtResource("1_l26l0")]
+layout_mode = 2
+
+[node name="Plant19" parent="PlantGridContainer" instance=ExtResource("1_l26l0")]
+layout_mode = 2
+
+[node name="Plant20" parent="PlantGridContainer" instance=ExtResource("1_l26l0")]
 layout_mode = 2
